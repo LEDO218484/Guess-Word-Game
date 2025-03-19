@@ -1,1 +1,225 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #f00;
+}
 
+body {
+  margin: 0;
+  background-color: #eee;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  text-align: center;
+  padding: 20px;
+  margin: 0 0 50px;
+  background-color: white;
+}
+.guess-game {
+  text-align: center;
+  width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  .game-area {
+    .inputs {
+      > div {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          font-size: 30px;
+          font-weight: bold;
+          margin-right: 15px;
+        }
+      }
+      .disabled-inputs {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      input {
+        margin: 0 5px;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        font-size: 50px;
+        caret-color: var(--primary-color);
+        background-color: white;
+        border: none;
+        border-bottom: 3px solid #333;
+        &:focus {
+          outline: none;
+          border-bottom: 3px solid var(--primary-color);
+        }
+        &.yes-in-place {
+          background-color: #f89e13;
+          border: #f89e13;
+          color: white;
+        }
+        &.not-in-place {
+          background-color: #18ba89;
+          border: #18ba89;
+          color: white;
+        }
+        &.no {
+          background-color: #27303f;
+          border: #27303f;
+          color: white;
+        }
+      }
+    }
+    .control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      margin: 30px auto;
+      gap: 10px;
+      .check {
+        background-color: var(--primary-color);
+        flex: 1;
+        white-space: nowrap;
+      }
+      .hint {
+        width: fit-content;
+        background-color: #009688;
+        white-space: nowrap;
+      }
+      button {
+        border: none;
+        font-size: 25px;
+        padding: 15px 20px;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        -ms-border-radius: 6px;
+        -o-border-radius: 6px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      button:disabled {
+        background-color: black;
+        opacity: 0.5;
+        cursor: no-drop;
+      }
+    }
+  }
+  .key-colors {
+    .key-color {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background-color: white;
+      margin-bottom: 10px;
+      .key {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 20px;
+        &.in-place {
+          background-color: #f89e13;
+        }
+        &.not-in-place {
+          background-color: #18ba89;
+        }
+        &.no {
+          background-color: #27303f;
+        }
+      }
+      .key-text {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.message {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  span {
+    font-weight: bold;
+    display: block;
+    font-size: 50px;
+    color: var(--primary-color);
+    text-transform: capitalize;
+    margin-top: 10px;
+  }
+  p {
+    margin-top: 15px;
+  }
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  position: relative;
+}
+/* جعل اللعبة ريسبونسيف بدون تغيير التصميم الأصلي */
+
+@media (max-width: 768px) {
+  .guess-game {
+    width: 95%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-area {
+    width: 100%;
+  }
+
+  .inputs div {
+    gap: 5px;
+  }
+
+  input {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 24px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .guess-game {
+    width: 100%;
+    padding: 15px;
+  }
+
+  input {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+    font-size: 20px;
+    margin: 0 0 0 50px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
